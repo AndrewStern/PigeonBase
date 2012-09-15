@@ -22,7 +22,6 @@ void UserMain::Start()
 	_EnvLayer = AddLayer();
 	_BtnLayer = AddLayer();
 
-
 	switch(GameState) {
 		case 0:
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
@@ -37,14 +36,17 @@ void UserMain::Start()
 			break;
 
 		case 1:
+			// Background
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
 			_background->SetScale(2.0f, 2.0f);
 
+			// Ground
 			_Ground1 = new Ground(L"Ground", this, false, false, Vector2(0,-5), L"grouundconcrete.png", false, 1, 1);
 			GetLayer(_GrndLayer)->AddObjectToLayer(_Ground1);
 			_Ground1->SetScale(10.0f, 4.0f);
 
+			// Lamp Posts
 			_lampPost1 = new LampPost(L"LampPost1", this, false, false, Vector2 (-3, -4), L"Lamp_Front.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost1);
 			_lampPost1->SetScale(0.5f, 0.5f);
@@ -69,11 +71,13 @@ void UserMain::Start()
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost6);
 			_lampPost6->SetScale(-0.5f, 0.5f);
 
+			// Building
 			_player = new Player( L"Player", this, false, true, Vector2(0,-2), L"palace.png", false, 1, 1);
 			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
 			_player->SetGravity(0);
 			_player->SetTag(L"Player");
 	
+			// Score Text
 			_text = new TextObject(L"Text", L"Thoma", 32, L"Score", this, Vector2(-6, 6));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_text);
 
@@ -87,20 +91,53 @@ void UserMain::Start()
 	}
 }
 
-void UserMain::Clear()
+void UserMain::ClearStart()
 {
 	DeleteLayer(_BgLayer);
 	DeleteLayer(_PlyrLayer);
 	DeleteLayer(_EnvLayer);
 	DeleteLayer(_BtnLayer);
 	DeleteLayer(_GrndLayer);
+/*
+	delete _background;
+	delete _button;
+	delete _text;
+*/
+}
+
+void UserMain::ClearGame()
+{
+	// Clear Collection
+	Pigeons.clear();
+
+	DeleteLayer(_BgLayer);
+	DeleteLayer(_PlyrLayer);
+	DeleteLayer(_EnvLayer);
+	DeleteLayer(_BtnLayer);
+	DeleteLayer(_GrndLayer);
+/*
+	delete _background;
+	delete _Ground1;
+
+	delete _lampPost1;
+	delete _lampPost2;
+	delete _lampPost3;
+	delete _lampPost4;
+	delete _lampPost5;
+	delete _lampPost6;
+
+	delete _player;
+
+	delete _text;
+	delete _score;
+*/
 }
 
 void UserMain::Update(unsigned long frameNumber)
 {
 	switch(GameState) {
 		case 1:
-			if(frameNumber % 100 == 0)
+			if(frameNumber % 60 == 0)
 			{
 				float X = -10 + (float) std::rand() / ((float) RAND_MAX / 20);
 				float Y = 10;
@@ -139,7 +176,7 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 				// Lets start the game!
 				GameState = 1;
 
-				this->Clear();
+				this->ClearStart();
 				this->Start();
 			}
 			break;
@@ -151,7 +188,7 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 				// Lets call it a day!
 				GameState = 0;
 
-				this->Clear();
+				this->ClearGame();
 				this->Start();
 
 				return;

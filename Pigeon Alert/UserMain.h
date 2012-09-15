@@ -22,7 +22,8 @@ public:
 	void OnPointerReleased(Vector2 _Point);
 	void OnKeyDown(Windows::System::VirtualKey Key);
 	void OnKeyUp(Windows::System::VirtualKey Key);
-	void Clear();
+	void ClearGame();
+	void ClearStart();
 	
 	Background * _background;
 	Player * _player;
@@ -30,8 +31,6 @@ public:
 	Btn * _button;
 
 	Ground * _Ground1;
-	Ground * _Ground2;
-	Ground * _Ground3;
 
 	LampPost* _lampPost1;
 	LampPost* _lampPost2;
@@ -39,9 +38,6 @@ public:
 	LampPost* _lampPost4;
 	LampPost* _lampPost5;
 	LampPost* _lampPost6;
-
-
-
 
 	// Collection of game objects
 	vector<Pigeon *> Pigeons;
