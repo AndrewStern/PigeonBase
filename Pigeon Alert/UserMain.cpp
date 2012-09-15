@@ -79,6 +79,10 @@ void UserMain::Start()
 
 			_score = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(-4, 6));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_score);
+
+			// Exit button
+			_button = new Btn(L"Button", this, false, true, Vector2(8, -8), L"button.png", false, 1, 1);
+			GetLayer(_BtnLayer)->AddObjectToLayer(_button);
 			break;
 	}
 }
@@ -134,12 +138,25 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 			{
 				// Lets start the game!
 				GameState = 1;
+
 				this->Clear();
 				this->Start();
 			}
 			break;
 
 		case 1:
+			// Exit
+			if(_TouchObj == _button)
+			{
+				// Lets call it a day!
+				GameState = 0;
+
+				this->Clear();
+				this->Start();
+
+				return;
+			}
+
 			for(int i = 0; i < (int) Pigeons.size(); i++)
 			{
 				Pigeon * pigeon = Pigeons.at(i);
