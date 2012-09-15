@@ -3,15 +3,14 @@
 
 void Pigeon::Collided(GameObject* pBob)
 {
-	if(pBob->CompareTag(L"Bullet"))
+	/*if(pBob->CompareTag(L"Bullet"))
 	{
 		this->Destroy();
 		pBob->Destroy();
-	}
+	}*/
 	if(pBob->CompareTag(L"PlayerTurret"))
 	{
 		this->Destroy();
-		pBob->Destroy();
 	}
 
 }

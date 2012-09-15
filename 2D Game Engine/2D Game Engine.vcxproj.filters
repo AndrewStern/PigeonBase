@@ -72,6 +72,7 @@
     <ClCompile Include="Game\PlayerTurret.cpp" />
     <ClCompile Include="Game\Bullet.cpp" />
     <ClCompile Include="Game\Pigeon.cpp" />
+    <ClCompile Include="Game\ExampleTextObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box2D\Box2D.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Game\PlayerTurret.h" />
     <ClInclude Include="Game\Bullet.h" />
     <ClInclude Include="Game\Pigeon.h" />
+    <ClInclude Include="Game\ExampleTextObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Box2D\Box2DConfig.cmake" />

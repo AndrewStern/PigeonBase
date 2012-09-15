@@ -8,6 +8,7 @@ void Bullet::Collided(GameObject* pBob)
 		this->Destroy();
 		pBob->Destroy();
 	}
+	
 }
 void Bullet::Start(){}
 void Bullet::Update(unsigned long frameNumber)

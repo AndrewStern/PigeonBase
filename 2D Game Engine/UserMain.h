@@ -1,8 +1,9 @@
 #pragma once
 #include "engine\main.h"
 #include "game\PlayerTurret.h"
-#include "game\Bullet.h"
+//#include "game\Bullet.h"
 #include "game\Pigeon.h"
+#include "game\ExampleTextObject.h"
 
 using namespace _2D_Game_Engine;
 
@@ -18,9 +19,20 @@ public:
 	void OnPointerReleased(Vector2 _Point);
 	void OnKeyDown(Windows::System::VirtualKey Key);
 	void OnKeyUp(Windows::System::VirtualKey Key);
+	
 	PlayerTurret* _PlayerTurret;
-	Bullet* _Bullet;
+
+	DefaultObject* _PlayerTurret1;
+	DefaultObject* _PlayerTurret2;
+	DefaultObject* _PlayerTurret3;
+	DefaultObject* _PlayerTurret4;
+
+	//Bullet* _Bullet;
+	
 	Pigeon* _Pigeon;
+
+	ExampleTextObject* m_Text;
+	ExampleTextObject* m_Score;
 	
 };
 

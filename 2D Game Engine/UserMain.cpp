@@ -1,14 +1,60 @@
 #include "pch.h"
 #include "DirectXPage.g.h"
+
 #include "Game\Background.h"
 #include "UserMain.h"
+#include "Game\DefaultObject.h"
+
+#include <sstream>
 
 
 using namespace Windows::UI::Xaml;
 
 
 void UserMain::Start()
-{
+{ 
+	#pragma region
+
+	_PlayerTurret1 = new DefaultObject(L"_PlayerTurret1", this, false,true, Vector2(7,-4.2f), L"Normal.png",false,1,1);
+	_PlayerTurret1->SetScale(1.3f,1.3f);
+	_PlayerTurret1->AddTexture(L"NormalPoo.png", false, 1, 1);
+	_PlayerTurret1->AddTexture(L"HalfPoo.png", false, 1, 1);
+	_PlayerTurret1->AddTexture(L"FullPoo.png", false, 1, 1);
+	_PlayerTurret1->AddTexture(L"FirstHit.png", true, 4, 4);
+	_PlayerTurret1->AddTexture(L"SecondHit.png", true, 4, 4);
+	_PlayerTurret1->AddTexture(L"ThirdHit.png", true, 4, 4);
+	GetLayer(0)->AddObjectToLayer(_PlayerTurret1);
+
+	_PlayerTurret2 = new DefaultObject(L"_PlayerTurret2", this, false,true, Vector2(2,-5.0f), L"Normal.png",false,1,1);
+	_PlayerTurret2->AddTexture(L"NormalPoo.png", false, 1, 1);
+	_PlayerTurret2->AddTexture(L"HalfPoo.png", false, 1, 1);
+	_PlayerTurret2->AddTexture(L"FullPoo.png", false, 1, 1);
+	_PlayerTurret2->AddTexture(L"FirstHit.png", true, 4, 4);
+	_PlayerTurret2->AddTexture(L"SecondHit.png", true, 4, 4);
+	_PlayerTurret2->AddTexture(L"ThirdHit.png", true, 4, 4);
+	GetLayer(0)->AddObjectToLayer(_PlayerTurret2);
+
+	_PlayerTurret3 = new DefaultObject(L"_PlayerTurret3", this, false,true, Vector2(-3,-5.5f), L"Normal.png",false,1,1);
+	_PlayerTurret3->SetScale(0.8f,0.8f);
+	_PlayerTurret3->AddTexture(L"NormalPoo.png", false, 1, 1);
+	_PlayerTurret3->AddTexture(L"HalfPoo.png", false, 1, 1);
+	_PlayerTurret3->AddTexture(L"FullPoo.png", false, 1, 1);
+	_PlayerTurret3->AddTexture(L"FirstHit.png", true, 4, 4);
+	_PlayerTurret3->AddTexture(L"SecondHit.png", true, 4, 4);
+	_PlayerTurret3->AddTexture(L"ThirdHit.png", true, 4, 4);
+	GetLayer(0)->AddObjectToLayer(_PlayerTurret3);
+
+	_PlayerTurret4 = new DefaultObject(L"_PlayerTurret4", this, false,true, Vector2(-8,-5.0f), L"Normal.png",false,1,1);
+	_PlayerTurret4->AddTexture(L"NormalPoo.png", false, 1, 1);
+	_PlayerTurret4->AddTexture(L"HalfPoo.png", false, 1, 1);
+	_PlayerTurret4->AddTexture(L"FullPoo.png", false, 1, 1);
+	_PlayerTurret4->AddTexture(L"FirstHit.png", true, 4, 4);
+	_PlayerTurret4->AddTexture(L"SecondHit.png", true, 4, 4);
+	_PlayerTurret4->AddTexture(L"ThirdHit.png", true, 4, 4);
+	GetLayer(0)->AddObjectToLayer(_PlayerTurret4);
+
+#pragma endregion Creating Player Objects
+
     AddLayer();
 	AddLayer();
 	AddLayer();
@@ -17,14 +63,17 @@ void UserMain::Start()
 	background->SetDrawScale(2, 2);
 	GetLayer(0)->AddObjectToLayer(background);
 
-	PlayerTurret* _PlayerTurret = new PlayerTurret( L"PlayerTurret", this, false, false, Vector2(0,0), L"Eblock1.png", false, 1, 1);
+	PlayerTurret* _PlayerTurret = new PlayerTurret( L"PlayerTurret", this, true, true, Vector2(0,0), L"Eblock1.png", false, 1, 1);
 	GetLayer(0)->AddObjectToLayer(_PlayerTurret);
-	_PlayerTurret->SetScale(1,1);
+	_PlayerTurret->SetScale(2,2);
+	_PlayerTurret->SetCollisionScale(2.0f,2.0f);
+	_PlayerTurret->SetGravity(0);
 	_PlayerTurret->SetTag(L"PlayerTurret");
 }
 
 void UserMain::Update(unsigned long frameNumber)
 {
+
 	if(frameNumber%100 == 0)
 	{
 		/*float MIN_X = -12;
@@ -56,19 +105,29 @@ void UserMain::Update(unsigned long frameNumber)
 		GetLayer(1)->AddObjectToLayer(Pigeon2);
 		*/
 	}
+
+	
 	
 }
 
 void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 {
+	// Get the game object at the touch point (click point)
+	GameObject* _TouchObject = GetDynamicObjectAtPoint(_TouchPoint);
 
-	Bullet* _Bullet = new Bullet (L"Bullet", this, true, true, Vector2(0,0), L"Eblock3.png", false, 1, 1);
+	// If the object at touch point is not null and it is an Alien then destroy it 
+	if(_TouchObject != nullptr && _TouchObject->GetTag().compare(L"Pigeon") == 0)
+	{	
+		_TouchObject->Destroy();
+	}
+
+	/*Bullet* _Bullet = new Bullet (L"Bullet", this, true, true, Vector2(0,0), L"Eblock3.png", false, 1, 1);
 	GetLayer(1)->AddObjectToLayer( _Bullet );
 	_Bullet->SetTag(L"Bullet");
 	_Bullet->SetGravity(0);
 	_Bullet->SetScale(0.5,0.5);
 	_Bullet->RotateToLookAt(_TouchPoint);
-	_Bullet->AddForce(0,600,Coordinate::Local);
+	_Bullet->AddForce(0,600,Coordinate::Local);*/
 }
 
 void UserMain::OnPointerMoved(Vector2 _TouchPoint)
