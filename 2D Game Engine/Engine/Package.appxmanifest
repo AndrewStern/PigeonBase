@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="_2D_Game_Engine.App">
-      <VisualElements DisplayName="2D Game Engine" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="2D Game Engine" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="Pigeon Alert" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Pigeon Alert" ForegroundText="light" BackgroundColor="#464646" ToastCapable="false">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="Assets\SplashScreen.png" />
         <InitialRotationPreference>
