@@ -22,9 +22,10 @@ void UserMain::Start()
 	switch(GameState) {
 		case 0:
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
+			_background->SetScale(2.0f, 2.0f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_background);
 
-			_text = new TextObject(L"Text", L"Thoma", 32, L"Pigeon Alert!", this, Vector2(-6, 6));
+			_text = new TextObject(L"Text", L"Thoma", 32, L"Pigeon Alert!", this, Vector2(-9, 9));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_text);
 			
 			_button = new Btn(L"Button", this, false, true, Vector2(0, 0), L"button.png", false, 1, 1);
@@ -33,15 +34,16 @@ void UserMain::Start()
 
 		case 1:
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
+			_background->SetScale(2.0f, 2.0f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_background);
 
-			_player = new Player( L"Player", this, false, false, Vector2(0,-4), L"palace.png", false, 1, 1);
+			_player = new Player( L"Player", this, false, false, Vector2(0,-7), L"palace.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_player);
 	
-			_text = new TextObject(L"Text", L"Thoma", 32, L"Score", this, Vector2(-6, 6));
+			_text = new TextObject(L"Text", L"Thoma", 32, L"Score", this, Vector2(-9, 9));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_text);
 
-			_score = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(-4, 6));
+			_score = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(-7, 9));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_score);
 			break;
 	}
@@ -57,7 +59,7 @@ void UserMain::Update(unsigned long frameNumber)
 {
 	switch(GameState) {
 		case 1:
-			if(frameNumber % 100 == 0)
+			if(frameNumber % 60 == 0)
 			{
 				float X = -10 + (float) std::rand() / ((float) RAND_MAX / 20);
 				float Y = 10;
@@ -67,8 +69,8 @@ void UserMain::Update(unsigned long frameNumber)
 				pidgeon->SetCollisionScale(1.0f, 1.0f);
 
 				pidgeon->SetGravity(0);
-				pidgeon->RotateToLookAt(0, -4);
-				pidgeon->AddForce(0, 800, Coordinate::Local);
+				pidgeon->RotateToLookAt(0, -7);
+				pidgeon->AddForce(0, 1000, Coordinate::Local);
 
 				GetLayer(_EnvLayer)->AddObjectToLayer(pidgeon);
 
