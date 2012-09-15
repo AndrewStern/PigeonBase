@@ -178,6 +178,8 @@
     <Image Include="Assets\grouundconcrete.png" />
     <Image Include="Assets\grouundgrass.png" />
     <Image Include="Assets\Lamp_Back.png" />
+    <Image Include="Assets\Background.png" />
+    <Image Include="Assets\Foreground.png" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />

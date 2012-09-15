@@ -3,7 +3,7 @@
 
 void Player::Collided(GameObject * _GameObject)
 {
-
+		
 }
 
 void Player::Start()
