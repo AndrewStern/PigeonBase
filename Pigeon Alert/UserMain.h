@@ -26,7 +26,9 @@ public:
 	
 	Background * _background;
 	Player * _player;
+
 	Btn * _button;
+
 	Ground * _Ground1;
 	Ground * _Ground2;
 	Ground * _Ground3;

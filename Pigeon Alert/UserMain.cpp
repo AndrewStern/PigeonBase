@@ -80,7 +80,7 @@ void UserMain::Start()
 			_score = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(-4, 6));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_score);
 
-			// Exit button
+			// Leave Game Mode
 			_button = new Btn(L"Button", this, false, true, Vector2(8, -8), L"button.png", false, 1, 1);
 			GetLayer(_BtnLayer)->AddObjectToLayer(_button);
 			break;
