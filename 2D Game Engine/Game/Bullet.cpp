@@ -1,14 +1,13 @@
 #include "pch.h"
 #include "Bullet.h"
 
-void Bullet::Collided(GameObject* bBob)
+void Bullet::Collided(GameObject* pBob)
 {
-	if(bBob->CompareTag(L"Pigeon"))
+	if(pBob->CompareTag(L"Pigeon"))
 	{
 		this->Destroy();
-		bBob->Destroy();
+		pBob->Destroy();
 	}
-	
 }
 void Bullet::Start(){}
 void Bullet::Update(unsigned long frameNumber)

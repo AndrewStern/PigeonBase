@@ -8,8 +8,7 @@ void Pigeon::Collided(GameObject* pBob)
 		this->Destroy();
 		pBob->Destroy();
 	}
-
-	if (pBob->CompareTag(L"PlayerTurret"))
+	if(pBob->CompareTag(L"PlayerTurret"))
 	{
 		this->Destroy();
 		pBob->Destroy();

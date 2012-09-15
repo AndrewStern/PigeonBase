@@ -6,9 +6,10 @@
 
 using namespace Windows::UI::Xaml;
 
+
 void UserMain::Start()
 {
-	
+    AddLayer();
 	AddLayer();
 	AddLayer();
 
@@ -17,21 +18,22 @@ void UserMain::Start()
 	GetLayer(0)->AddObjectToLayer(background);
 
 	PlayerTurret* _PlayerTurret = new PlayerTurret( L"PlayerTurret", this, false, false, Vector2(0,0), L"Eblock1.png", false, 1, 1);
-	GetLayer(1)->AddObjectToLayer(_PlayerTurret);
-	_PlayerTurret->SetCollisionScale(1.0f,1.0f);
+	GetLayer(0)->AddObjectToLayer(_PlayerTurret);
+	_PlayerTurret->SetScale(1,1);
+	_PlayerTurret->SetTag(L"PlayerTurret");
 }
 
 void UserMain::Update(unsigned long frameNumber)
 {
-	if(frameNumber%50 == 0)
+	if(frameNumber%100 == 0)
 	{
 		/*float MIN_X = -12;
 		float MIN_Y = -12;
 		float MAX_X =  12;
 		float MAX_Y =  12;*/
-
-		float X = -10 + (float) std::rand()/ ((float)RAND_MAX/(20));
-		float Y = -10 + (float) std::rand()/ ((float)RAND_MAX/(20));
+                           
+		float X = -15 + (float) std::rand()/ ((float)RAND_MAX/(40));
+		float Y = -15 + (float) std::rand()/ ((float)RAND_MAX/(40));
 
 		// LEFT //
 		Pigeon* _Pigeon = new Pigeon(L"Pigeon", this, true,true, Vector2(X,Y), L"EBlock2.png",false,1,1);
@@ -40,7 +42,7 @@ void UserMain::Update(unsigned long frameNumber)
 		_Pigeon->SetScale(0.75,0.75);
 		_Pigeon->SetGravity(0);
 		_Pigeon->RotateToLookAt(0,0);
-		_Pigeon->AddForce(0,300,Coordinate::Local);
+		_Pigeon->AddForce(0, 250,Coordinate::Local);
 		GetLayer(1)->AddObjectToLayer(_Pigeon);
 		
 
@@ -59,7 +61,7 @@ void UserMain::Update(unsigned long frameNumber)
 
 void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 {
-	int _L_Bullet = AddLayer();
+
 	Bullet* _Bullet = new Bullet (L"Bullet", this, true, true, Vector2(0,0), L"Eblock3.png", false, 1, 1);
 	GetLayer(1)->AddObjectToLayer( _Bullet );
 	_Bullet->SetTag(L"Bullet");

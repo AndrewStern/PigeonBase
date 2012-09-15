@@ -20,6 +20,7 @@ public:
 	void OnKeyUp(Windows::System::VirtualKey Key);
 	PlayerTurret* _PlayerTurret;
 	Bullet* _Bullet;
+	Pigeon* _Pigeon;
 	
 };
 
