@@ -62,7 +62,7 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
-/Generated Files
+/2D Game Engine/Generated Files
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
