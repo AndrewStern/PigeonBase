@@ -1,9 +1,13 @@
 #include "pch.h"
 #include "Player.h"
 
-void Player::Collided(GameObject * _GameObject)
+void Player::Collided(GameObject * object)
 {
+		if (object->CompareName(L"Pigeon"))
+	{
+	object->Destroy();	
 		
+	}
 }
 
 void Player::Start()

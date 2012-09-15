@@ -75,6 +75,7 @@ void UserMain::Start()
 			_player = new Player( L"Player", this, false, true, Vector2(0,-2), L"palace.png", false, 1, 1);
 			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
 			_player->SetGravity(0);
+			_player->SetCollisionScale(0.9f, 0.9f);
 			_player->SetTag(L"Player");
 	
 			_text = new TextObject(L"Text", L"Thoma", 32, L"Score", this, Vector2(-6, 6));

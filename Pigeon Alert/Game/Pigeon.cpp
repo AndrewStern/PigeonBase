@@ -1,9 +1,13 @@
 #include "pch.h"
 #include "Pigeon.h"
 
-void Pigeon::Collided(GameObject * _GameObject)
+void Pigeon::Collided(GameObject * object)
 {
-	
+	if (object->CompareName(L"Player"))
+	{
+	this->Destroy();	
+		
+	}
 }
 
 void Pigeon::Start()
