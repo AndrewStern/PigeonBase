@@ -302,7 +302,15 @@
     <Image Include="Assets\Lamp_Side.png" />
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\palace.png" />
+    <Image Include="Assets\pigeon-fly.png" />
     <Image Include="Assets\pigeon.png" />
+    <Image Include="Assets\PigeonFlying01.png" />
+    <Image Include="Assets\PigeonFlying02.png" />
+    <Image Include="Assets\PigeonFlying020001.png" />
+    <Image Include="Assets\PigeonFlying03.png" />
+    <Image Include="Assets\PigeonFlying04.png" />
+    <Image Include="Assets\PigeonFlying05.png" />
+    <Image Include="Assets\PigeonFlying06.png" />
     <Image Include="Assets\SmallLogo.png" />
     <Image Include="Assets\SplashScreen.png" />
   </ItemGroup>
