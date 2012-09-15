@@ -9,6 +9,8 @@
 #include "Game\Ground.h"
 #include "Game\LampPost.h"
 
+#include "pch.h"
+
 using namespace _Pigeon_Alert;
 
 class UserMain : public Main

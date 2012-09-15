@@ -3,7 +3,7 @@
 
 void Pigeon::Collided(GameObject * _GameObject)
 {
-
+	
 }
 
 void Pigeon::Start()
