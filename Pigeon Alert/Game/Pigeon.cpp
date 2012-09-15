@@ -3,10 +3,7 @@
 
 void Pigeon::Collided(GameObject * _GameObject)
 {
-	if(_GameObject->GetType() == L"Player") 
-	{
-		this->Destroy();
-	}
+
 }
 
 void Pigeon::Start()

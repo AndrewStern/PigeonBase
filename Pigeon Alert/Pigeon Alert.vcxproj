@@ -170,6 +170,8 @@
     <ClInclude Include="Engine\TextureManager.h" />
     <ClInclude Include="Game\Background.h" />
     <ClInclude Include="Game\Btn.h" />
+    <ClInclude Include="Game\Ground.h" />
+    <ClInclude Include="Game\LampPost.h" />
     <ClInclude Include="Game\Pigeon.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\TextObject.h" />
@@ -273,6 +275,8 @@
     <ClCompile Include="Engine\TextureManager.cpp" />
     <ClCompile Include="Game\Background.cpp" />
     <ClCompile Include="Game\Btn.cpp" />
+    <ClCompile Include="Game\Ground.cpp" />
+    <ClCompile Include="Game\LampPost.cpp" />
     <ClCompile Include="Game\Pigeon.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\TextObject.cpp" />
@@ -289,6 +293,11 @@
   <ItemGroup>
     <Image Include="Assets\bg.jpg" />
     <Image Include="Assets\button.png" />
+    <Image Include="Assets\grouundconcrete.png" />
+    <Image Include="Assets\grouundgrass.png" />
+    <Image Include="Assets\Lamp_Back.png" />
+    <Image Include="Assets\Lamp_Front.png" />
+    <Image Include="Assets\Lamp_Side.png" />
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\palace.png" />
     <Image Include="Assets\pigeon.png" />

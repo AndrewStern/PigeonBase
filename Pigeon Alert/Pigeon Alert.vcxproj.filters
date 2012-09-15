@@ -73,6 +73,8 @@
     <ClCompile Include="Game\Pigeon.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\TextObject.cpp" />
+    <ClCompile Include="Game\Ground.cpp" />
+    <ClCompile Include="Game\LampPost.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box2D\Box2D.h" />
@@ -149,6 +151,8 @@
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\TextObject.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Game\Ground.h" />
+    <ClInclude Include="Game\LampPost.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Box2D\Box2DConfig.cmake" />
@@ -169,6 +173,11 @@
     <Image Include="Assets\palace.png" />
     <Image Include="Assets\pigeon.png" />
     <Image Include="Assets\SmallLogo.png" />
+    <Image Include="Assets\Lamp_Front.png" />
+    <Image Include="Assets\Lamp_Side.png" />
+    <Image Include="Assets\grouundconcrete.png" />
+    <Image Include="Assets\grouundgrass.png" />
+    <Image Include="Assets\Lamp_Back.png" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
