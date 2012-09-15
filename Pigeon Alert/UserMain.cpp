@@ -75,7 +75,7 @@ void UserMain::Start()
 			_player = new Player( L"Player", this, false, true, Vector2(0,-2), L"palace.png", false, 1, 1);
 			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
 			_player->SetGravity(0);
-			_player->SetCollisionScale(0.9f, 0.9f);
+			_player->SetCollisionScale(1.0f, 1.0f);
 			_player->SetTag(L"Player");
 	
 			_text = new TextObject(L"Text", L"Thoma", 32, L"Score", this, Vector2(-6, 6));
@@ -110,9 +110,9 @@ void UserMain::Update(unsigned long frameNumber)
 		
 				pigeon->SetCollisionScale(1.0f, 1.0f);
 
-				pigeon->SetGravity(0);
+				pigeon->SetGravity(0.70);
 				pigeon->RotateToLookAt(0, -4);
-				pigeon->AddForce(0, 800, Coordinate::Local);
+				pigeon->AddForce(0, 2750, Coordinate::Local);
 
 				GetLayer(_EnvLayer)->AddObjectToLayer(pigeon);
 
