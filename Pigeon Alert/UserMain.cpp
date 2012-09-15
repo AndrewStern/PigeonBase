@@ -38,7 +38,7 @@ void UserMain::Start()
 
 		case 1:
 
-			// Background
+			// Background, First Level
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
 
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
@@ -52,7 +52,7 @@ void UserMain::Start()
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost1);
 			_lampPost1->SetScale(0.2f, 0.2f);
 
-			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -5), L"Lamp_Front.png", false, 1, 1);
+			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -5), L"Lamp_Front.png", false, 1, 1);  
             GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost2);
 			_lampPost2->SetScale(0.2f, 0.2f);
 
@@ -71,6 +71,55 @@ void UserMain::Start()
 			_lampPost6 = new LampPost(L"LampPost6", this, false, false, Vector2 (8,-8), L"Lamp_Side.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost6);
 			_lampPost6->SetScale(-0.35f, 0.35f);
+
+			_player = new Player( L"Player", this, false, true, Vector2(0,-3), L"palace.png", false, 1, 1);
+			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
+			_player->SetGravity(0);
+			_player->SetCollisionScale(1.0f, 1.0f);
+			_player->SetTag(L"Player");
+	
+			_text = new TextObject(L"Text", L"Thoma", 32, L"Score", this, Vector2(-6, 6));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_text);
+
+			_score = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(-4, 6));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_score);
+			break;
+
+			case 2:
+
+			// Background, Second Level
+			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"background.jpg", false, 1, 1);
+
+			GetLayer(_BgLayer)->AddObjectToLayer(_background);
+			_background->SetScale(2.0f, 2.0f);
+
+			_Ground1 = new Ground(L"Ground", this, false, false, Vector2(0,-5), L"grouundgrass.png", false, 1, 1);
+			GetLayer(_GrndLayer)->AddObjectToLayer(_Ground1);
+			_Ground1->SetScale(10.0f, 4.0f);
+
+			/*_lampPost1 = new LampPost(L"LampPost1", this, false, false, Vector2 (-3, -5), L"Lamp_Front.png", false, 1, 1);
+			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost1);
+			_lampPost1->SetScale(0.2f, 0.2f);
+
+			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -5), L"Lamp_Front.png", false, 1, 1);  
+            GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost2);
+			_lampPost2->SetScale(0.2f, 0.2f);
+
+			_lampPost3 = new LampPost(L"LampPost3", this, false, false, Vector2 (-5,-6), L"Lamp_Front.png", false, 1, 1);
+			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost3);
+			_lampPost3->SetScale(0.25f, 0.25f);
+
+			_lampPost4 = new LampPost(L"LampPost4", this, false, false, Vector2 (5,-6), L"Lamp_Front.png", false, 1, 1);
+			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost4);
+			_lampPost4->SetScale(0.3f, 0.3f);
+
+			_lampPost5 = new LampPost(L"LampPost5", this, false, false, Vector2 (-8,-8), L"Lamp_Side.png", false, 1, 1);
+			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost5);
+			_lampPost5->SetScale(0.35f, 0.35f);
+
+			_lampPost6 = new LampPost(L"LampPost6", this, false, false, Vector2 (8,-8), L"Lamp_Side.png", false, 1, 1);
+			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost6);
+			_lampPost6->SetScale(-0.35f, 0.35f);*/
 
 			_player = new Player( L"Player", this, false, true, Vector2(0,-3), L"palace.png", false, 1, 1);
 			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
@@ -134,6 +183,24 @@ void UserMain::Update(unsigned long frameNumber)
                 pigeon->AddForce(0, 3350, Coordinate::Local);
 			}*/
 			}break;
+		case 2:
+			if(frameNumber % 50 == 0)
+			{
+
+				float X = -10 + (float) std::rand() / ((float) RAND_MAX / 20);
+				float Y = 10;
+		        
+				Pigeon * pigeon = new Pigeon(L"Pigeon", this, true, true, Vector2(X, Y), L"pigeon.png", false, 1, 1);
+				pigeon->SetTag(L"Pigeon");
+				pigeon->SetCollisionScale(1.0f, 1.0f);
+                pigeon->SetGravity(0.8f);
+				pigeon->RotateToLookAt(0, -4);
+				pigeon->AddForce(0, 2500, Coordinate::Local);
+
+				GetLayer(_EnvLayer)->AddObjectToLayer(pigeon);
+
+
+				Pigeons.push_back(pigeon);
 
 			//FOR loop for setting the poop bombs.
 			/*for(int i = 0; i < (int) Pigeons.size(); i++)
