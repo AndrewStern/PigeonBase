@@ -1,5 +1,6 @@
 #pragma once
 #include "engine\gameobject.h"
+
 class Background :public GameObject
 {
 	void Collided(GameObject*);

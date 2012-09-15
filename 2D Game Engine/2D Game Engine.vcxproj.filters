@@ -61,7 +61,6 @@
     <ClCompile Include=".\Engine\Main.cpp" />
     <ClCompile Include=".\Engine\Particles.cpp" />
     <ClCompile Include=".\Engine\Texture.cpp" />
-    <ClCompile Include="UserMain.cpp" />
     <ClCompile Include="Engine\ParticleManager.cpp" />
     <ClCompile Include="Engine\Loader.cpp" />
     <ClCompile Include="Engine\TextureManager.cpp" />
@@ -69,10 +68,11 @@
     <ClCompile Include="Engine\MediaStreamer.cpp" />
     <ClCompile Include="Engine\AudioEngine.cpp" />
     <ClCompile Include="Game\Background.cpp" />
-    <ClCompile Include="Game\PlayerTurret.cpp" />
-    <ClCompile Include="Game\Bullet.cpp" />
     <ClCompile Include="Game\Pigeon.cpp" />
-    <ClCompile Include="Game\ExampleTextObject.cpp" />
+    <ClCompile Include="Game\TextObject.cpp" />
+    <ClCompile Include="Game\Player.cpp" />
+    <ClCompile Include="UserMain.cpp" />
+    <ClCompile Include="Game\Btn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box2D\Box2D.h" />
@@ -135,7 +135,6 @@
     <ClInclude Include=".\Engine\Main.h" />
     <ClInclude Include=".\Engine\Particles.h" />
     <ClInclude Include=".\Engine\Texture.h" />
-    <ClInclude Include="UserMain.h" />
     <ClInclude Include="Engine\ParticleManager.h" />
     <ClInclude Include="Engine\Loader.h" />
     <ClInclude Include="Engine\TextureManager.h" />
@@ -144,10 +143,11 @@
     <ClInclude Include="Engine\MediaStreamer.h" />
     <ClInclude Include="Engine\AudioEngine.h" />
     <ClInclude Include="Game\Background.h" />
-    <ClInclude Include="Game\PlayerTurret.h" />
-    <ClInclude Include="Game\Bullet.h" />
     <ClInclude Include="Game\Pigeon.h" />
-    <ClInclude Include="Game\ExampleTextObject.h" />
+    <ClInclude Include="Game\TextObject.h" />
+    <ClInclude Include="Game\Player.h" />
+    <ClInclude Include="UserMain.h" />
+    <ClInclude Include="Game\Btn.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Box2D\Box2DConfig.cmake" />
@@ -166,9 +166,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\SplashScreen.png" />
+    <Image Include="Assets\Logo.png" />
+    <Image Include="Assets\SmallLogo.png" />
+    <Image Include="Assets\pigeon.png" />
+    <Image Include="Assets\palace.png" />
     <Image Include="Assets\bg.jpg" />
-    <Image Include="Assets\EBlock1.png" />
-    <Image Include="Assets\EBlock2.png" />
-    <Image Include="Assets\EBlock3.png" />
+    <Image Include="Assets\button.png" />
   </ItemGroup>
 </Project>

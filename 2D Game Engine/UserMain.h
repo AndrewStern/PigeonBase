@@ -1,17 +1,18 @@
 #pragma once
 #include "engine\main.h"
-#include "game\PlayerTurret.h"
-//#include "game\Bullet.h"
-#include "game\Pigeon.h"
-#include "game\ExampleTextObject.h"
+
+#include "Game\Background.h"
+#include "Game\Player.h"
+#include "Game\Pigeon.h"
+#include "Game\TextObject.h"
+#include "Game\Btn.h"
 
 using namespace _2D_Game_Engine;
 
-class UserMain :
-	public Main
+class UserMain : public Main
 {
 public:
-
+	UserMain();
 	void Start();
 	void Update(unsigned long frameNumber);
 	void OnPointerPressed(Vector2 _Point);
@@ -19,20 +20,24 @@ public:
 	void OnPointerReleased(Vector2 _Point);
 	void OnKeyDown(Windows::System::VirtualKey Key);
 	void OnKeyUp(Windows::System::VirtualKey Key);
+	void Clear();
 	
-	PlayerTurret* _PlayerTurret;
+	Background * _background;
+	Player * _player;
+	Btn * _button;
 
-	DefaultObject* _PlayerTurret1;
-	DefaultObject* _PlayerTurret2;
-	DefaultObject* _PlayerTurret3;
-	DefaultObject* _PlayerTurret4;
+	// Collection of game objects
+	vector<Pigeon *> Pigeons;
 
-	//Bullet* _Bullet;
-	
-	Pigeon* _Pigeon;
+	// Layers
+	int _EnvLayer;
+	int _BtnLayer;
 
-	ExampleTextObject* m_Text;
-	ExampleTextObject* m_Score;
-	
+	// Text
+	TextObject * _text;
+	TextObject * _score;
+
+	// game state
+	int GameState;
 };
 

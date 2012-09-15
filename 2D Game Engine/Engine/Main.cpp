@@ -54,7 +54,6 @@ Layer * Main::GetLayer(int layerId)
 {
 	if (layerId<layerCount)
 	{
-
 		return m_Layers[layerId];
 	}
 	else

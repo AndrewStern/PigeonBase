@@ -73,7 +73,6 @@ public:
 	void SetDynamicBody(bool flag);
 	void SetTag(std::wstring ChangeTo);
 	void SetName(std::wstring ChangeTo);
-	
 
 	//<--- Texture Setting
 	void AddTexture(std::wstring m_TextureName, bool _IsSprite, int _Rows, int _Columns);		

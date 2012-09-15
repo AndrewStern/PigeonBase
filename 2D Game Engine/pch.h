@@ -29,10 +29,6 @@
 
 #include "Engine\BasicMath.h"
 
-#include "Game\PlayerTurret.h"
-#include "Game\Pigeon.h"
-
-
 //class Vector2
 //{
 //public:
