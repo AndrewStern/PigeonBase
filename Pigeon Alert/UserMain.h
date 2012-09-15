@@ -62,5 +62,6 @@ public:
 
 	// game state
 	int GameState;
+	int _keepScore;
 };
 

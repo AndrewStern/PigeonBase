@@ -42,37 +42,37 @@ void UserMain::Start()
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
 
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
-			_background->SetScale(0.8f, 0.8f);
+			_background->SetScale(2.0f, 2.0f);
 
 			_Ground1 = new Ground(L"Ground", this, false, false, Vector2(0,-5), L"grouundconcrete.png", false, 1, 1);
 			GetLayer(_GrndLayer)->AddObjectToLayer(_Ground1);
 			_Ground1->SetScale(10.0f, 4.0f);
 
-			_lampPost1 = new LampPost(L"LampPost1", this, false, false, Vector2 (-3, -4), L"Lamp_Front.png", false, 1, 1);
+			_lampPost1 = new LampPost(L"LampPost1", this, false, false, Vector2 (-3, -5), L"Lamp_Front.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost1);
-			_lampPost1->SetScale(0.5f, 0.5f);
+			_lampPost1->SetScale(0.2f, 0.2f);
 
-			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -4), L"Lamp_Front.png", false, 1, 1);
+			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -5), L"Lamp_Front.png", false, 1, 1);
             GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost2);
-			_lampPost2->SetScale(0.5f, 0.5f);
+			_lampPost2->SetScale(0.2f, 0.2f);
 
 			_lampPost3 = new LampPost(L"LampPost3", this, false, false, Vector2 (-5,-6), L"Lamp_Front.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost3);
-			_lampPost3->SetScale(0.5f, 0.5f);
+			_lampPost3->SetScale(0.25f, 0.25f);
 
 			_lampPost4 = new LampPost(L"LampPost4", this, false, false, Vector2 (5,-6), L"Lamp_Front.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost4);
-			_lampPost4->SetScale(0.5f, 0.5f);
+			_lampPost4->SetScale(0.3f, 0.3f);
 
 			_lampPost5 = new LampPost(L"LampPost5", this, false, false, Vector2 (-8,-8), L"Lamp_Side.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost5);
-			_lampPost5->SetScale(0.5f, 0.5f);
+			_lampPost5->SetScale(0.35f, 0.35f);
 
 			_lampPost6 = new LampPost(L"LampPost6", this, false, false, Vector2 (8,-8), L"Lamp_Side.png", false, 1, 1);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost6);
-			_lampPost6->SetScale(-0.5f, 0.5f);
+			_lampPost6->SetScale(-0.35f, 0.35f);
 
-			_player = new Player( L"Player", this, false, true, Vector2(0,-2), L"palace.png", false, 1, 1);
+			_player = new Player( L"Player", this, false, true, Vector2(0,-3), L"palace.png", false, 1, 1);
 			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
 			_player->SetGravity(0);
 			_player->SetCollisionScale(1.0f, 1.0f);
@@ -98,26 +98,44 @@ void UserMain::Clear()
 
 void UserMain::Update(unsigned long frameNumber)
 {
+
 	switch(GameState) {
 		case 1:
 			if(frameNumber % 100 == 0)
 			{
+
 				float X = -10 + (float) std::rand() / ((float) RAND_MAX / 20);
 				float Y = 10;
-
+		        
 				Pigeon * pigeon = new Pigeon(L"Pigeon", this, true, true, Vector2(X, Y), L"pigeon.png", false, 1, 1);
 				pigeon->SetTag(L"Pigeon");
-		
 				pigeon->SetCollisionScale(1.0f, 1.0f);
-
-				pigeon->SetGravity(0.70);
+                pigeon->SetGravity(0.7f);
 				pigeon->RotateToLookAt(0, -4);
-				pigeon->AddForce(0, 2750, Coordinate::Local);
+				pigeon->AddForce(0, 2300, Coordinate::Local);
 
 				GetLayer(_EnvLayer)->AddObjectToLayer(pigeon);
 
+
 				Pigeons.push_back(pigeon);
+				// FOR loops for increasing speed of pigeons as score increases.
+				/*for ( int i = _keepScore = 0; i < 25; i++)
+			{
+				pigeon->AddForce(0, 2750, Coordinate::Local);
 			}
+
+			for (int i = _keepScore = 25;25 < i < 50; i++)
+			{
+                pigeon->AddForce(0, 3000, Coordinate::Local);
+			}
+
+			for (int i = _keepScore = 50;50 < i <  75; i++)
+			{
+                pigeon->AddForce(0, 3350, Coordinate::Local);
+			}*/
+			}break;
+
+			//FOR loop for setting the poop bombs.
 			/*for(int i = 0; i < (int) Pigeons.size(); i++)
 			{
 				Pigeon * pigeon = Pigeons.at(i);
@@ -135,7 +153,7 @@ void UserMain::Update(unsigned long frameNumber)
 			
 
 			
-			break;
+			
 	}
 }
 
@@ -169,6 +187,7 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 				{
 					_TouchObj->Destroy();
 					_player->PlayerScore++;
+					_keepScore++;
 
 					std::wostringstream ss;
 					ss << _player->PlayerScore;
