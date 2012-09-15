@@ -291,8 +291,10 @@
     <Text Include="Box2D\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Background.png" />
     <Image Include="Assets\bg.jpg" />
     <Image Include="Assets\button.png" />
+    <Image Include="Assets\Foreground.png" />
     <Image Include="Assets\grouundconcrete.png" />
     <Image Include="Assets\grouundgrass.png" />
     <Image Include="Assets\Lamp_Back.png" />

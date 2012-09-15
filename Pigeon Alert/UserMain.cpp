@@ -37,9 +37,9 @@ void UserMain::Start()
 
 		case 1:
 			// Background
-			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
+			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"Background.png", false, 1, 1);
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
-			_background->SetScale(2.0f, 2.0f);
+			_background->SetScale(0.8f, 0.8f);
 
 			// Ground
 			_Ground1 = new Ground(L"Ground", this, false, false, Vector2(0,-5), L"grouundconcrete.png", false, 1, 1);
