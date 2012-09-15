@@ -8,6 +8,7 @@
 #include "Game\Btn.h"
 #include "Game\Ground.h"
 #include "Game\LampPost.h"
+#include "Game\PooBomb.h"
 
 #include "pch.h"
 
@@ -24,15 +25,14 @@ public:
 	void OnPointerReleased(Vector2 _Point);
 	void OnKeyDown(Windows::System::VirtualKey Key);
 	void OnKeyUp(Windows::System::VirtualKey Key);
-	void ClearGame();
-	void ClearStart();
+	void Clear();
 	
 	Background * _background;
 	Player * _player;
-
 	Btn * _button;
-
 	Ground * _Ground1;
+	Ground * _Ground2;
+	Ground * _Ground3;
 
 	LampPost* _lampPost1;
 	LampPost* _lampPost2;
@@ -40,6 +40,11 @@ public:
 	LampPost* _lampPost4;
 	LampPost* _lampPost5;
 	LampPost* _lampPost6;
+
+	PooBomb* _pooBomb;
+
+
+
 
 	// Collection of game objects
 	vector<Pigeon *> Pigeons;

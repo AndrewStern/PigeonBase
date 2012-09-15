@@ -17,6 +17,7 @@ void Pigeon::Update(unsigned long frameNumber)
 	{
 		this->Destroy();
 	}
+	
 }
 
 std::wstring Pigeon::GetType()

@@ -184,6 +184,7 @@
     </ClInclude>
     <ClInclude Include=".\Engine\Texture.h" />
     <ClInclude Include=".\Engine\Text.h" />
+    <ClInclude Include="Game\PooBomb.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="UserMain.h" />
   </ItemGroup>
@@ -285,6 +286,7 @@
     </ClCompile>
     <ClCompile Include=".\Engine\Texture.cpp" />
     <ClCompile Include=".\Engine\Text.cpp" />
+    <ClCompile Include="Game\PooBomb.cpp" />
     <ClCompile Include="UserMain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +305,7 @@
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\palace.png" />
     <Image Include="Assets\pigeon.png" />
+    <Image Include="Assets\poosheet.png" />
     <Image Include="Assets\SmallLogo.png" />
     <Image Include="Assets\SplashScreen.png" />
   </ItemGroup>
