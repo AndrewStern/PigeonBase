@@ -166,30 +166,24 @@
     <Page Include="DirectXPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\SplashScreen.png" />
-    <Image Include="Assets\bg.jpg" />
     <Image Include="Assets\button.png" />
     <Image Include="Assets\Logo.png" />
-    <Image Include="Assets\palace.png" />
-    <Image Include="Assets\pigeon.png" />
     <Image Include="Assets\SmallLogo.png" />
-    <Image Include="Assets\Lamp_Front.png" />
-    <Image Include="Assets\Lamp_Side.png" />
-    <Image Include="Assets\grouundconcrete.png" />
-    <Image Include="Assets\grouundgrass.png" />
-    <Image Include="Assets\Lamp_Back.png" />
-    <Image Include="Assets\Background.png" />
-    <Image Include="Assets\Foreground.png" />
-    <Image Include="Assets\pigeon-fly.png" />
-    <Image Include="Assets\PigeonFlying01.png" />
-    <Image Include="Assets\PigeonFlying02.png" />
-    <Image Include="Assets\PigeonFlying020001.png" />
-    <Image Include="Assets\PigeonFlying03.png" />
-    <Image Include="Assets\PigeonFlying04.png" />
-    <Image Include="Assets\PigeonFlying05.png" />
-    <Image Include="Assets\PigeonFlying06.png" />
+    <Image Include="Assets\SplashScreen.png" />
+    <Image Include="Assets\Textures\background.png" />
+    <Image Include="Assets\Textures\palace.png" />
+    <Image Include="Assets\Textures\Pigeon\pigeon-sprite.png" />
+    <Image Include="Assets\Textures\Lamp\lamp-back.png" />
+    <Image Include="Assets\Textures\Lamp\lamp-front.png" />
+    <Image Include="Assets\Textures\Lamp\lamp-side.png" />
+    <Image Include="Assets\Textures\Ground\concrete.png" />
+    <Image Include="Assets\Textures\Ground\grass.png" />
+    <Image Include="Assets\Textures\Pigeon\pigeon-idle.png" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Audio\background.wav" />
   </ItemGroup>
 </Project>

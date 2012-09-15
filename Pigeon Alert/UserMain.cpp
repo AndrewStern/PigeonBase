@@ -25,7 +25,7 @@ void UserMain::Start()
 	switch(GameState) {
 		case 0:
 			// Background
-			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
+			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"Textures/background.png", false, 1, 1);
 			_background->SetScale(2.0f, 2.0f);
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
 
@@ -36,42 +36,42 @@ void UserMain::Start()
 
 		case 1:
 			// Background
-			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
+			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"Textures/background.png", false, 1, 1);
 			_background->SetScale(2.0f, 2.0f);
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
 
 			// Ground
-			_Ground1 = new Ground(L"Ground", this, false, false, Vector2(0,-5), L"grouundconcrete.png", false, 1, 1);
+			_Ground1 = new Ground(L"Ground", this, false, false, Vector2(0,-5), L"Textures/Ground/concrete.png", false, 1, 1);
 			_Ground1->SetScale(10.0f, 4.0f);
 			GetLayer(_GrndLayer)->AddObjectToLayer(_Ground1);
 
 			// Lamp Posts
-			_lampPost1 = new LampPost(L"LampPost1", this, false, false, Vector2 (-3, -4), L"Lamp_Front.png", false, 1, 1);
+			_lampPost1 = new LampPost(L"LampPost1", this, false, false, Vector2 (-3, -4), L"Textures/Lamp/lamp-front.png", false, 1, 1);
 			_lampPost1->SetScale(0.5f, 0.5f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost1);
 
-			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -4), L"Lamp_Front.png", false, 1, 1);
+			_lampPost2 = new LampPost(L"LampPost2", this, false, false, Vector2 (3, -4), L"Textures/Lamp/lamp-front.png", false, 1, 1);
             _lampPost2->SetScale(0.5f, 0.5f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost2);
 
-			_lampPost3 = new LampPost(L"LampPost3", this, false, false, Vector2 (-5,-6), L"Lamp_Front.png", false, 1, 1);
+			_lampPost3 = new LampPost(L"LampPost3", this, false, false, Vector2 (-5,-6), L"Textures/Lamp/lamp-front.png", false, 1, 1);
 			_lampPost3->SetScale(0.5f, 0.5f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost3);
 
-			_lampPost4 = new LampPost(L"LampPost4", this, false, false, Vector2 (5,-6), L"Lamp_Front.png", false, 1, 1);
+			_lampPost4 = new LampPost(L"LampPost4", this, false, false, Vector2 (5,-6), L"Textures/Lamp/lamp-front.png", false, 1, 1);
 			_lampPost4->SetScale(0.5f, 0.5f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost4);
 
-			_lampPost5 = new LampPost(L"LampPost5", this, false, false, Vector2 (-8,-8), L"Lamp_Side.png", false, 1, 1);
+			_lampPost5 = new LampPost(L"LampPost5", this, false, false, Vector2 (-8,-8), L"Textures/Lamp/lamp-front.png", false, 1, 1);
 			_lampPost5->SetScale(0.5f, 0.5f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost5);
 
-			_lampPost6 = new LampPost(L"LampPost6", this, false, false, Vector2 (8,-8), L"Lamp_Side.png", false, 1, 1);
+			_lampPost6 = new LampPost(L"LampPost6", this, false, false, Vector2 (8,-8), L"Textures/Lamp/lamp-front.png", false, 1, 1);
 			_lampPost6->SetScale(-0.5f, 0.5f);
 			GetLayer(_EnvLayer)->AddObjectToLayer(_lampPost6);
 
 			// Building
-			_player = new Player( L"Player", this, false, true, Vector2(0,-2), L"palace.png", false, 1, 1);
+			_player = new Player( L"Player", this, false, true, Vector2(0,-2), L"Textures/palace.png", false, 1, 1);
 			_player->SetGravity(0);
 			_player->SetTag(L"Player");
 			GetLayer(_PlyrLayer)->AddObjectToLayer(_player);
@@ -141,17 +141,15 @@ void UserMain::Update(unsigned long frameNumber)
 				float X = -10 + (float) std::rand() / ((float) RAND_MAX / 20);
 				float Y = 10;
 
-				Pigeon * pigeon = new Pigeon(L"Pigeon", this, true, true, Vector2(X, Y), L"PigeonFlying020001.png", false, 1, 1);
+				Pigeon * pigeon = new Pigeon(L"Pigeon", this, true, true, Vector2(X, Y), L"Textures/Pigeon/pigeon-idle.png", false, 1, 1);
 				pigeon->SetTag(L"Pigeon");
 				pigeon->SetScale(0.3f, 0.3f);
 
 				// Add textures for animation
-				pigeon->AddTexture(L"PigeonFlying06.png", true, 1, 6);
+				pigeon->AddTexture(L"Textures/Pigeon/pigeon-sprite.png", true, 1, 11);
 
 				// Start animation
-				pigeon->SetTexture(L"PigeonFlying06.png");
-
-				//pigeon->SetCollisionScale(1.0f, 1.0f);
+				pigeon->SetTexture(L"Textures/Pigeon/pigeon-sprite.png");
 
 				pigeon->SetGravity(0);
 				pigeon->RotateToLookAt(0, -6);
