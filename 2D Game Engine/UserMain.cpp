@@ -9,6 +9,7 @@ UserMain::UserMain()
 {
 	// 0 = Start screen, 1 = In Game, 2 = Learderboard
 	GameState = 0;
+	GameTime = 60;
 }
 
 void UserMain::Start()
@@ -85,7 +86,22 @@ void UserMain::Start()
 			// Leave Game Mode
 			_button = new Btn(L"ExitButton", this, false, true, Vector2(8, -8), L"button.png", false, 1, 1);
 			GetLayer(_BtnLayer)->AddObjectToLayer(_button);
+
+			//TIMER
+			_timerlabel = new TextObject(L"Text", L"Thoma", 32, L"Time", this, Vector2(-9, 8));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_timerlabel);
+
+			_time = new TextObject(L"Score", L"Thoma", 32, L"60", this, Vector2(-7, 8));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_time);
+
 			break;
+		case 2:
+			// Background
+			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"Textures/background.png", false, 1, 1);
+			_background->SetScale(2.0f, 2.0f);
+			GetLayer(_BgLayer)->AddObjectToLayer(_background);
+			break;
+
 	}
 }
 
@@ -100,6 +116,22 @@ void UserMain::Clear()
 
 void UserMain::Update(unsigned long frameNumber)
 {
+	if(frameNumber % 60 == 0)
+	{
+		GameTime --;
+		std::wostringstream ss;
+				ss << GameTime;
+
+				_time->SetText(ss.str());
+	}
+
+	if(GameTime < 1)
+	{
+		GameState = 2;
+		this->Clear();
+				this->Start();
+				return;
+	}
 	switch(GameState) {
 		case 1:
 			if(frameNumber % 60 == 0)
@@ -127,6 +159,9 @@ void UserMain::Update(unsigned long frameNumber)
 			}
 
 			break;
+
+
+
 	}
 }
 

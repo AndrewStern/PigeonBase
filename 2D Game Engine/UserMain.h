@@ -40,6 +40,8 @@ public:
 	// Text
 	TextObject * _text;
 	TextObject * _score;
+	TextObject * _time;
+	TextObject * _timerlabel;
 
 	// Layers
 	int _BgLayer;
@@ -51,4 +53,5 @@ public:
 
 	// game state
 	int GameState;
+	int GameTime;
 };
