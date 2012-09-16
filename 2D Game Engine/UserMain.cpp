@@ -100,7 +100,39 @@ void UserMain::Start()
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"Textures/background.png", false, 1, 1);
 			_background->SetScale(2.0f, 2.0f);
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
-			break;
+
+			//Highscore table
+
+			_HighScore1 = new TextObject(L"Text", L"Thoma", 32, L"HighScore 1:", this, Vector2(-2, 9));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScore1);
+
+			_HighScoreNames1 = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(2, 9));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScoreNames1);
+
+			_HighScore2 = new TextObject(L"Text", L"Thoma", 32, L"HighScore 2:", this, Vector2(-2, 8));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScore2);
+
+			_HighScoreNames2 = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(2, 8));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScoreNames2);
+
+			_HighScore3 = new TextObject(L"Text", L"Thoma", 32, L"HighScore 3:", this, Vector2(-2, 7));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScore3);
+
+			_HighScoreNames3 = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(2, 7));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScoreNames3);
+
+			_HighScore4 = new TextObject(L"Text", L"Thoma", 32, L"HighScore 4:", this, Vector2(-2, 6));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScore4);
+
+			_HighScoreNames4 = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(2, 6));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScoreNames4);
+
+			_HighScore5 = new TextObject(L"Text", L"Thoma", 32, L"HighScore 5:", this, Vector2(-2, 5));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScore5);
+
+			_HighScoreNames5 = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(2, 5));
+
+
 
 	}
 }
@@ -127,10 +159,14 @@ void UserMain::Update(unsigned long frameNumber)
 
 	if(GameTime < 1)
 	{
-		GameState = 2;
+		
+
 		this->Clear();
-				this->Start();
-				return;
+		this->Start();
+
+		GameState = 2;
+		return;
+	
 	}
 	switch(GameState) {
 		case 1:

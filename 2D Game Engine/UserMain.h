@@ -43,6 +43,18 @@ public:
 	TextObject * _time;
 	TextObject * _timerlabel;
 
+	TextObject * _HighScore1;
+	TextObject * _HighScore2;
+	TextObject * _HighScore3;
+	TextObject * _HighScore4;
+	TextObject * _HighScore5;
+
+	TextObject * _HighScoreNames1;
+	TextObject * _HighScoreNames2;
+	TextObject * _HighScoreNames3;
+	TextObject * _HighScoreNames4;
+	TextObject * _HighScoreNames5;
+
 	// Layers
 	int _BgLayer;
 	int _GrndLayer;
