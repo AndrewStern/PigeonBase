@@ -1,0 +1,15 @@
+#pragma once
+
+// Helper utilities to make DirectX APIs work with exceptions
+namespace DX
+{
+	inline void ThrowIfFailed(HRESULT hr)
+	{
+		if (FAILED(hr))
+		{
+			// Set a breakpoint on this line to catch DirectX API errors
+			throw "DFGDFG";
+			//throw Platform::Exception::CreateException(hr);
+		}
+	}
+}
