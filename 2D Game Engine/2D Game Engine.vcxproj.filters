@@ -184,6 +184,7 @@
     <Image Include="Assets\Textures\Ground\grass.png" />
     <Image Include="Assets\Textures\Pigeon\pigeon-feather.png" />
     <Image Include="Assets\Textures\Pigeon\pigeon-feather-idle.png" />
+    <Image Include="Assets\exit-button.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\Audio\background.wav" />

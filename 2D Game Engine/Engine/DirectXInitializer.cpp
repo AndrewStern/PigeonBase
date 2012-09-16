@@ -65,10 +65,12 @@ void DirectXInitializer::CreateDeviceResources()
 	((App^)Windows::UI::Xaml::Application::Current->Current)->SetAudioEngine(&m_Audio);
 	m_Main->m_audioManager->Initialize(&m_Audio);
 
-	m_Main->Start();
-	m_Audio.Start();
-	
-
+	m_Main->m_audioManager = new AudioManager(); 
+	m_Main->m_audioManager->Initialize(&m_Audio); 
+	m_Audio.Initialize(); 
+	m_Audio.CreateResources(); 
+	m_Main->Start(); 
+	m_Audio.Start(); 
 
 	DX::ThrowIfFailed(
 		m_d2dContext->CreateSolidColorBrush(

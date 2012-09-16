@@ -293,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\button.png" />
+    <Image Include="Assets\exit-button.png" />
     <Image Include="Assets\Logo.png" />
     <Image Include="Assets\SmallLogo.png" />
     <Image Include="Assets\SplashScreen.png" />
