@@ -8,6 +8,8 @@
 #include "Game\Btn.h"
 #include "Game\Ground.h"
 #include "Game\LampPost.h"
+#include "Game\PooBomb.h"
+#include "Game\Feathers.h"
 
 class UserMain : public Main
 {

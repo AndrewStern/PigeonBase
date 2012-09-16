@@ -73,6 +73,8 @@
     <ClCompile Include="Game\Pigeon.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="Game\TextObject.cpp" />
+    <ClCompile Include="Game\Feathers.cpp" />
+    <ClCompile Include="Game\PooBomb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box2D\Box2D.h" />
@@ -149,6 +151,8 @@
     <ClInclude Include="Game\Pigeon.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Game\TextObject.h" />
+    <ClInclude Include="Game\Feathers.h" />
+    <ClInclude Include="Game\PooBomb.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Box2D\Box2DConfig.cmake" />
@@ -178,6 +182,8 @@
     <Image Include="Assets\Textures\Lamp\lamp-side.png" />
     <Image Include="Assets\Textures\Ground\concrete.png" />
     <Image Include="Assets\Textures\Ground\grass.png" />
+    <Image Include="Assets\Textures\Pigeon\pigeon-feather.png" />
+    <Image Include="Assets\Textures\Pigeon\pigeon-feather-idle.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\Audio\background.wav" />

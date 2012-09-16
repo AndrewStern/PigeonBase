@@ -3,7 +3,7 @@
 
 void Pigeon::Collided(GameObject * _GameObject)
 {
-	
+
 }
 
 void Pigeon::Start()
@@ -13,17 +13,20 @@ void Pigeon::Start()
 
 void Pigeon::Update(unsigned long frameNumber)
 {
-	int x = (int) this->GetVelocity().x;
-	int y = (int) this->GetVelocity().y;
+	int x = (int) this->position.x;
+	int y = (int) this->position.y;
 
 	if(x > 40 || x < -40 || y > 40 || y < -40)
 	{
 		this->Destroy();
 	}
 
-	if(y < 0)
+	if(y < 4)
 	{
-		// we're here!
+		float X = -10 + (float) std::rand() / ((float) RAND_MAX / 20);
+
+		this->SetGravity(-1.0f);
+		this->RotateToLookAt(X, 20);
 	}
 }
 

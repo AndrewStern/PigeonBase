@@ -118,9 +118,10 @@ void UserMain::Update(unsigned long frameNumber)
 				pigeon->SetTexture(L"Textures/Pigeon/pigeon-sprite.png");
 				pigeon->SetAnimationSpeed(40.0f);
 
-				pigeon->SetGravity(0.01f);
+				pigeon->SetCollisionScale(0.2f, 0.2f);
+				pigeon->SetGravity(1.0f);
 				pigeon->RotateToLookAt(0, -6);
-				pigeon->AddForce(0, 1300, Coordinate::Local);
+				pigeon->AddForce(0, 1000, Coordinate::Local);
 
 				GetLayer(_PigeonsLayer)->AddObjectToLayer(pigeon);
 			}
@@ -168,6 +169,14 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 			if(_TouchObject->GetTag().compare(L"Pigeon") == 0)
 			{
 				_TouchObject->Destroy();
+
+				Feathers * _f = new Feathers(L"Feathers", this, false, false, _TouchObject->position, L"Textures/Pigeon/pigeon-feather-idle.png", false, 1, 1);
+				_f->AddTexture(L"Textures/Pigeon/pigeon-feather.png", true, 1, 16);
+
+				_f->SetTexture(L"Textures/Pigeon/pigeon-feather.png");
+				_f->SetAnimationSpeed(40.0f);
+
+				GetLayer(_PigeonsLayer)->AddObjectToLayer(_f);
 
 				_player->PlayerScore++;
 
