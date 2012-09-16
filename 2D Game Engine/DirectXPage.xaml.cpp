@@ -51,7 +51,6 @@ void DirectXPage::Initialize()
 	m_app->ShowGameOverlay();
 
 	m_Initializer = ref new DirectXInitializer();
-	
 	m_Initializer->Initialize(Window::Current->CoreWindow,this->DXSwapChainPanel,DisplayProperties::LogicalDpi);
 	m_Main = m_Initializer->GetMain();
 	con = ref new Controller();
