@@ -23,7 +23,8 @@ void UserMain::Start()
 	_BtnLayer = AddLayer();
 
 
-	switch(GameState) {
+	switch(GameState) 
+	{
 		case 0:
 			_background = new Background(L"Background", this, false, false, Vector2(0,0), L"bg.jpg", false, 1, 1);
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
@@ -93,6 +94,11 @@ void UserMain::Start()
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
 			_background->SetScale(2.0f, 2.0f);
 
+			_text = new TextObject(L"Text", L"Thoma", 32, L"You Scored :", this, Vector2(-3, 4));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_text);
+
+			_score = new TextObject(L"Score", L"Thoma", 32, L"0", this, Vector2(-2, 4));
+			GetLayer(_EnvLayer)->AddObjectToLayer(_score);
 			
 			break;
 	}
@@ -110,7 +116,8 @@ void UserMain::Clear()
 void UserMain::Update(unsigned long frameNumber)
 {
 
-	switch(GameState) {
+	switch(GameState) 
+	{
 		case 1:
 			if(frameNumber % 100 == 0)
 			{
@@ -167,8 +174,7 @@ void UserMain::Update(unsigned long frameNumber)
 			
 
 			
-			
-	};
+	
 
 void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 {
@@ -180,7 +186,8 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 		return;
 	}
 
-	switch(GameState) {
+	switch(GameState) 
+	{
 		case 0:
 			if(_TouchObj == _button)
 			{
