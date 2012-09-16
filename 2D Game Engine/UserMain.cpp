@@ -105,7 +105,6 @@ void UserMain::Start()
 			GetLayer(_BgLayer)->AddObjectToLayer(_background);
 
 			//Highscore table
-
 			_HighScore1 = new TextObject(L"Text", L"Thoma", 32, L"HighScore 1:", this, Vector2(-2, 9));
 			GetLayer(_EnvLayer)->AddObjectToLayer(_HighScore1);
 
@@ -197,9 +196,6 @@ void UserMain::Update(unsigned long frameNumber)
 			}
 
 			break;
-
-
-
 	}
 }
 
@@ -248,6 +244,9 @@ void UserMain::OnPointerPressed(Vector2 _TouchPoint)
 
 				_f->SetTexture(L"Textures/Pigeon/pigeon-feather.png");
 				_f->SetAnimationSpeed(40.0f);
+
+				_f->AddSound(L"pigeon-splat.wav", 0);
+				_f->PlaySound(L"pigeon-splat.wav");
 
 				GetLayer(_PigeonsLayer)->AddObjectToLayer(_f);
 

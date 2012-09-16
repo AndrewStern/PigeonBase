@@ -188,5 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="Assets\Audio\background.wav" />
+    <Media Include="Assets\Audio\pigeon-wings.wav" />
+    <Media Include="Assets\Audio\pigeon-splat.wav" />
   </ItemGroup>
 </Project>
