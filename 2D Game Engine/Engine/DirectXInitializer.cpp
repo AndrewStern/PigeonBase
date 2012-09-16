@@ -56,19 +56,17 @@ void DirectXInitializer::CreateDeviceResources()
 {
 	DirectXBase::CreateDeviceResources();
 
-	m_Audio.Initialize();
-	m_Audio.CreateResources();
-
 	m_Main = new UserMain();
 	m_Main->Initialize(m_d2dDevice.Get(), m_d2dContext.Get(), m_wicFactory.Get(), m_dwriteFactory.Get());
-	
-	((App^)Windows::UI::Xaml::Application::Current->Current)->SetAudioEngine(&m_Audio);
-	m_Main->m_audioManager->Initialize(&m_Audio);
+
+	((App^) Windows::UI::Xaml::Application::Current->Current)->SetAudioEngine(&m_Audio);
 
 	m_Main->m_audioManager = new AudioManager(); 
 	m_Main->m_audioManager->Initialize(&m_Audio); 
+
 	m_Audio.Initialize(); 
 	m_Audio.CreateResources(); 
+
 	m_Main->Start(); 
 	m_Audio.Start(); 
 

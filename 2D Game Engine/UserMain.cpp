@@ -10,13 +10,13 @@ UserMain::UserMain()
 	// 0 = Start screen, 1 = In Game, 2 = Learderboard
 	GameState = 0;
 	GameTime = 60;
-
-	// add background sound loop
-	SetBackgroundMusic(L"background.wav");
 }
 
 void UserMain::Start()
 {
+	// add background sound loop
+	SetBackgroundMusic(L"background.wav");
+
 	// setup layers
 	_BgLayer = AddLayer();
 	_GrndLayer = AddLayer();
@@ -152,10 +152,12 @@ void UserMain::Update(unsigned long frameNumber)
 	if(frameNumber % 60 == 0)
 	{
 		GameTime--;
+/*
 		std::wostringstream ss;
 		ss << GameTime;
 
 		_time->SetText(ss.str());
+*/
 	}
 
 	if(GameTime < 1)
